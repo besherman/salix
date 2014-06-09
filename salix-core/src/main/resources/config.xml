@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schedule>
+    <alarms>
+        <alarm label="Weekdays">
+            <when>
+                <day>monday</day>
+                <day>tuesday</day>
+                <day>wednesday</day>
+                <day>thursday</day>
+                <day>friday</day>
+            </when>
+            <what>
+<!--                <service device="lifx" label="lamp">                                        
+                    <start>05.30</start>
+                    <max>06.30</max>
+                </service>-->
+                <service device="sound-player" label="birds">
+                    <start>06:30</start>
+                    <play>bird_sings_in_the_afternoon.mp3</play>
+                </service>
+                <service device="sound-player" label="wakeup">
+                    <start>06:30:10</start>
+                    <play>alarm.mp3</play>
+                    <snooze>PT4S</snooze>
+                    <snooze-allowed>1</snooze-allowed>
+                    <snooze-until>07:20</snooze-until>
+                </service>
+                
+            </what>
+        </alarm>
+    </alarms>    
+</schedule>
