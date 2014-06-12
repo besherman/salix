@@ -6,34 +6,58 @@
 
 package com.github.besherman.salix.main;
 
+import com.github.besherman.salix.bigredbutton.DebugSnoozeInputDevice;
+import com.github.besherman.salix.clock.ClockInputDevice;
+import com.github.besherman.salix.clock.DebugAutoClockInputDevice;
+import com.github.besherman.salix.exports.InputDevice;
+import com.github.besherman.salix.exports.OutputDevice;
+import com.github.besherman.salix.soundplayer.SoundPlayerOutputDevice;
+import com.github.besherman.salix.lifx.LifxOutputDevice;
+import java.time.LocalTime;
+import java.util.Arrays;
+import java.util.List;
+import java.util.logging.LogManager;
+
 /**
  *
  * @author Richard
  */
 public class Salix {
     public static void main(String[] args) throws Exception {
+        LogManager.getLogManager().readConfiguration(Salix.class.getResourceAsStream("/logging.properties"));
         
-//        System.out.println("starting scheduler...");
-//        Scheduler scheduler = new Scheduler();
-//        InputDevice clock = new DebugAutoClockInputDevice(LocalTime.parse("06:29:57"));
-//        scheduler.addInputDevice(clock);
-//        
-//        DebugSnoozeInputDevice button = new DebugSnoozeInputDevice();
-//        scheduler.addInputDevice(button);
-//        
-//        OutputDevice soundPlayer = new SoundPlayerOutputDevice();
-//        scheduler.addOutputDevice(soundPlayer);
-//        
-//        scheduler.load(Salix.class.getResourceAsStream("/config.xml"));        
-//        
-//        Thread.sleep(16 * 1000);
-//        
-//        button.snooze();
-//        
-//        Thread.sleep(6 * 1000);
-//        
-//        button.snooze();
+        System.out.println("starting scheduler...");
+        Scheduler scheduler = new Scheduler();
         
-
+        List<InputDevice> inputs = Arrays.asList(
+            //new DebugAutoClockInputDevice(LocalTime.parse("08:28:56")),
+            new ClockInputDevice(),
+            new DebugSnoozeInputDevice()
+        );
+        
+        List<OutputDevice> outputs = Arrays.asList(
+                new SoundPlayerOutputDevice(),
+                new LifxOutputDevice()
+        );
+        
+        inputs.stream().forEach(i -> { 
+            i.initialize();
+            scheduler.addInputDevice(i);
+        });
+        
+        outputs.stream().forEach(o -> {
+            o.initialize();
+            scheduler.addOutputDevice(o);
+        });
+        
+        
+        scheduler.load(Salix.class.getResourceAsStream("/config.xml"));        
+        
+        Thread.sleep(31 * 60 * 1000);
+        
+        System.out.println("Shutting down");
+        
+        inputs.forEach(InputDevice::dispose);
+        outputs.forEach(OutputDevice::dispose);
     }
 }

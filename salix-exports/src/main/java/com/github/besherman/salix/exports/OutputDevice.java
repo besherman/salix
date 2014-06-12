@@ -15,4 +15,6 @@ import org.w3c.dom.Element;
 public interface OutputDevice {
     String getID();
     OutputDeviceClient createService(Element cfg);
+    void initialize();
+    void dispose();    
 }

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.github.besherman.salix.core;
+package com.github.besherman.salix.main;
 
 import java.util.stream.IntStream;
 import java.util.stream.Stream;

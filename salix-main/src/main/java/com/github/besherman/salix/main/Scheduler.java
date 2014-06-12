@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.github.besherman.salix.core;
+package com.github.besherman.salix.main;
 
 import java.io.InputStream;
 import com.github.besherman.salix.exports.EventListener;
@@ -34,12 +34,10 @@ public class Scheduler {
     
     public void addInputDevice(InputDevice dev) {        
         dev.addEventListener(evtHub);        
-        dev.initialize();
     }
     
     public void removeInputDevice(InputDevice dev) {
         dev.removeEventListener(evtHub);        
-        dev.dispose();
     }
     
     public void addOutputDevice(OutputDevice dev) {

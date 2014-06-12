@@ -11,11 +11,12 @@
                 <day>friday</day>
             </when>
             <what>
-<!--                <service device="lifx" label="lamp">                                        
-                    <start>05.30</start>
-                    <max>06.30</max>
-                </service>-->
-                <service device="sound-player" label="birds">
+                <service device="lifx" label="lamp">                                        
+                    <start>07:30</start>
+                    <sunrise-duration>PT30M</sunrise-duration>
+                    <device-label>Sovrummet</device-label>
+                </service>
+<!--                <service device="sound-player" label="birds">
                     <start>06:30</start>
                     <play>bird_sings_in_the_afternoon.mp3</play>
                 </service>
@@ -25,7 +26,7 @@
                     <snooze>PT4S</snooze>
                     <snooze-allowed>1</snooze-allowed>
                     <snooze-until>07:20</snooze-until>
-                </service>
+                </service>-->
                 
             </what>
         </alarm>

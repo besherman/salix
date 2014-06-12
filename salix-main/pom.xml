@@ -72,11 +72,7 @@
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>com.github.besherman</groupId>
-            <artifactId>salix-core</artifactId>
-            <version>1.0</version>
-        </dependency>
+
         <dependency>
             <groupId>com.github.besherman</groupId>
             <artifactId>salix-clock</artifactId>
@@ -92,6 +88,11 @@
             <artifactId>salix-big-red-button</artifactId>
             <version>1.0</version>
         </dependency>        
+        <dependency>
+            <groupId>com.github.besherman</groupId>
+            <artifactId>salix-lifx</artifactId>
+            <version>1.0</version>
+        </dependency>         
     </dependencies>    
         
     

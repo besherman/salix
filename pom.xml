@@ -7,7 +7,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>salix-exports</module>
-        <module>salix-core</module>
         <module>salix-clock</module>
         <module>salix-main</module>
         <module>salix-sound-player</module>

@@ -24,4 +24,12 @@ public class SoundPlayerOutputDevice implements OutputDevice {
     public OutputDeviceClient createService(Element cfg) {
         return new SoundDeviceClient(cfg);
     }
+
+    @Override
+    public void initialize() {
+    }
+
+    @Override
+    public void dispose() {
+    }
 }

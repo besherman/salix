@@ -9,9 +9,9 @@ package com.github.besherman.salix.soundplayer;
 import java.time.Duration;
 import java.time.LocalTime;
 import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 import com.github.besherman.salix.exports.Event;
 import com.github.besherman.salix.exports.OutputDeviceClient;
+import static com.github.besherman.salix.exports.CfgUtil.*;
 
 /**
  *
@@ -91,35 +91,5 @@ public class SoundDeviceClient implements OutputDeviceClient {
         }
     }
     
-    private static LocalTime readTime(Element parent, String tag) {
-        String str = readString(parent, tag);
-        if(str != null) {
-            return LocalTime.parse(str);
-        }
-        return null;
-    }
-    
-    private static String readString(Element parent, String tag) {
-        NodeList nl = parent.getElementsByTagName(tag);
-        if(nl.getLength() == 0) {
-            return null;
-        }
-        return nl.item(0).getTextContent();
-    }
-    
-    private static Duration readDuration(Element parent, String tag) {
-        String str = readString(parent, tag);
-        if(str != null) {
-            return Duration.parse(str);
-        }
-        return null;
-    }
-    
-    private static Integer readInt(Element parent, String tag) {
-        String str = readString(parent, tag);
-        if(str != null) {
-            return Integer.parseInt(str);
-        }
-        return null;
-    }
+
 }
