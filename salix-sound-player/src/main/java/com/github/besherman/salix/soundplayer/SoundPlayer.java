@@ -57,8 +57,9 @@ public class SoundPlayer implements Runnable {
     public void setVolume(int level) {
         this.volume = level;
         if(gainCtrl != null) {
-            float min = gainCtrl.getMinimum();
-            float range = Math.abs(min);
+            float min = gainCtrl.getMinimum(),
+                  max = gainCtrl.getMaximum();
+            float range = Math.abs(min) + Math.abs(max);
             float normLevel = level / 100f;
             float value = min + range * normLevel;
             gainCtrl.setValue(value);

@@ -13,6 +13,7 @@
         <module>salix-sound-player</module>
         <module>salix-big-red-button</module>
         <module>salix-web-server</module>
+        <module>salix-lifx</module>
     </modules>
     <build>
         <pluginManagement>

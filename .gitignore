@@ -1,2 +1,8 @@
 /salix-main/nbactions.xml
 /salix-web-server/target/
+/salix-exports/target/
+/salix-core/target/
+/salix-clock/target/
+/salix-sound-player/target/
+/salix-main/target/
+/salix-lifx/target/
